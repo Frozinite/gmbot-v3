@@ -2,7 +2,7 @@ var db_table = 'rooms';
 var db = require('./db.js');
 var mod_config = require('../config/config.js');
 var rooms;
-var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig, cmdDiscordToken];
+var roomCommands = [cmdRoomAdd, cmdToken, cmdConfig];
 
 getAllRooms();
 exports.modName = "Rooms Control";
@@ -30,11 +30,6 @@ function setAccessTokenDB(config, callback){
   });
 }
 
-function setDiscordTokenDB(config, callback){
-  db.updateOneDoc('config', {config: config.config}, {$set: {‘discord_token': config.discord_token}}, function(){
-    mod_config.setConfig();
-  });
-}
 
 exports.getRooms = function() {
   return rooms;
@@ -145,25 +140,3 @@ function cmdToken(request, currentBot, owner, callback) {
     return msg;
   }
 }
-
-function cmdDiscordToken(request, currentBot, owner, callback) {
-  var regex = /^\/config discord_token (.+)/i;
-  var reqText = request.text;
-
-  if (regex.test(reqText)) {
-    if (request.user_id != owner.id || currentBot.type != 'config')
-      return true;
-
-    var val = regex.exec(reqText);
-
-    setDiscordTokenDB({
-      config: 'owner',
-      discord_token: val[1]
-    });
-
-    var msg = 'Your discord token has been saved.';
-    callback(true, msg, []);
-    return msg;
-  }
-}
-
