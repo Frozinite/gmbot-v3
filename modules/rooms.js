@@ -31,11 +31,10 @@ function setAccessTokenDB(config, callback){
 }
 
 function setDiscordTokenDB(config, callback){
-  db.updateOneDoc(‘config’, {config: config.config}, {$set: {‘discord_token’: config.discord_token}}, function(){
+  db.updateOneDoc('config', {config: config.config}, {$set: {‘discord_token': config.discord_token}}, function(){
     mod_config.setConfig();
   });
 }
-
 
 exports.getRooms = function() {
   return rooms;
@@ -159,7 +158,7 @@ function cmdDiscordToken(request, currentBot, owner, callback) {
 
     setDiscordTokenDB({
       config: 'owner',
-      access_token: val[1]
+      discord_token: val[1]
     });
 
     var msg = 'Your discord token has been saved.';
