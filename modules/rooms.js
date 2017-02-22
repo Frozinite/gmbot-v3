@@ -31,7 +31,7 @@ function setAccessTokenDB(config, callback){
 }
 
 function setDiscordTokenDB(config, callback){
-  db.updateOneDoc(‘config’, {config: config.config”, {$set: {‘discord_token’: config.access_token}}, function(){
+  db.updateOneDoc(‘config’, {config: config.config”, {$set: {‘discord_token’: config.discord_token}}, function(){
     mod_config.setConfig();
   });
 }
