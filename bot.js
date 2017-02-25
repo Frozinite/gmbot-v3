@@ -6,6 +6,7 @@ var db           = require('./modules/db.js');
 var mods         = require('./modules/mods.js');
 var commandList  = require('./modules/command-list.js');
 var rooms        = require('./modules/rooms.js');
+var Discord      = require('discord.io');
 
 //commands with custom actions
 var userCmds     = require('./custom_commands/user-commands.js');
@@ -24,6 +25,11 @@ var HTTPS        = require('https');
 
 //Temporarily just an array of the commands functions. Make an object with configuration values.
 var checkCommandsHSH = [mods, sysTriggers, userCmds, userMentions, sysCommands, atEveryone, funCommands, quotes, rooms, gif, catFact, urbanDict];
+var bot = new Discord.Client({
+    token: "MjgzNDcwNzg2MjM1NDY1NzI4.C46wXQ.X4gBZONwMVf06Xk1OgJ9iUg7b6g",
+    autorun: true
+});
+
 
 exports.init = function() {
   var req = this.req;
@@ -117,3 +123,66 @@ function postMessage(botResponse, attachments, botID) {
   });
   botReq.end(JSON.stringify(body));
 }
+
+bot.on('ready', function() {
+    console.log('Logged in as %s - %s\n', bot.username, bot.id);
+});
+
+bot.on('disconnect', function(errMsg, code) {
+    console.log('Got disconnected, reconnecting\n');
+    bot.connect();
+});
+
+bot.on('message', function(user, userID, channelID, message, event) {
+    var regex = /^\!gif (.+)/i;
+
+    if (!regex.test(message)){ return false; }
+    var val = regex.exec(message);
+
+    //console.log('Received gif search for %s\n', val[1]);
+    //bot.sendMessage({ to: channelID, message: val[1] });
+
+    var options = {
+      hostname: "api.giphy.com",
+      path: "/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + encodeURIComponent(val[1])
+    };
+  
+    var callbackGif = function(response) {
+      var str = '';
+
+      response.on('data', function(chunk) {
+        str += chunk;
+      });
+
+      response.on('end', function() {
+        str = JSON.parse(str);
+
+        var msg = '';
+        if (typeof(str.data.image_original_url) !== 'undefined'){
+          msg = str.data.image_original_url;
+        } else {
+          msg = "No such GIF silly.";
+        }
+
+        var debug1 = "User requested ";
+        var debug2 = " and I found this url: ";
+        var debug = debug1.concat(val[1], debug2, msg);
+
+        //bot.sendMessage({ to: channelID, message: debug });
+        bot.sendMessage({ to: channelID, message: msg });
+      });
+    };
+
+    HTTPS.request(options, callbackGif).end();
+
+
+// Basic bot response template
+//    if (message === "ping") {
+//        bot.sendMessage({
+//            to: channelID,
+//            message: "pong"
+//        });
+//    }
+
+
+});
