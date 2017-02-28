@@ -137,10 +137,10 @@ bot.on('disconnect', function(errMsg, code) {
 bot.on('message', function(user, userID, channelID, message, event) {
 
 // Function for !gif command
-    var regex = /^\!gif (.+)/i;
-    var temp_message = message;
+  var regex = /^\!gif (.+)/i;
+  var temp_message = message;
 
-    if (!regex.test(temp_message)){ return false; }
+  if (regex.test(temp_message)){
     var val = regex.exec(temp_message);
 
     //console.log('Received gif search for %s\n', val[1]);
@@ -178,9 +178,18 @@ bot.on('message', function(user, userID, channelID, message, event) {
     };
 
     HTTPS.request(options, callbackGif).end();
+    return true;
+  }
+
 
 // Function for !quote command - just gets a random quote from the database
 // There is no functionality in this bot to @ someone in discord yet
+    var regex2 = /^\!quote (.+)/i;
+    var temp_message2 = message;
+
+    if (!regex2.test(temp_message2)){ return false; }
+    var val2 = regex2.exec(temp_message2);
+
 if (message == "!quote") {
   bot.sendMessage({ to: channelID, message: "quote" });
   var quote = discordRandomQuote();
