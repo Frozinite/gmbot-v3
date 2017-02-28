@@ -1,7 +1,7 @@
 var db = require('../modules/db.js');
 var db_table = 'user_quotes';
 
-var cmds = [cmdSaveQuote, cmdRandomQuote, cmdRandomUserQuote];
+var cmds = [cmdSaveQuote, cmdRandomQuote, cmdRandomUserQuote, discordRandomQuote];
 
 function saveQuote(quoteHash, callback){
   db.addDoc(db_table, quoteHash, callback);
@@ -133,4 +133,12 @@ function cmdRandomQuote(funMode, request, callback) {
   } else {
     return false;
   }
+}
+
+function discordRandomQuote() {
+  var msg = '';
+  getOneRandomQuote(function(docs){
+      msg = docs.user_name + ': "' + docs.quote + '" - ' + docs.date;
+  });
+  return msg;
 }

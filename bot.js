@@ -133,7 +133,10 @@ bot.on('disconnect', function(errMsg, code) {
     bot.connect();
 });
 
+
 bot.on('message', function(user, userID, channelID, message, event) {
+
+// Function for !gif command
     var regex = /^\!gif (.+)/i;
 
     if (!regex.test(message)){ return false; }
@@ -174,6 +177,13 @@ bot.on('message', function(user, userID, channelID, message, event) {
     };
 
     HTTPS.request(options, callbackGif).end();
+
+// Function for !quote command - just gets a random quote from the database
+// There is no functionality in this bot to @ someone in discord yet
+if (message === "!quote") {
+  var quote = discordRandomQuote();
+  bot.sendMessage({ to: channelID, message: quote });
+}
 
 
 // Basic bot response template
