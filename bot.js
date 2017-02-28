@@ -195,7 +195,6 @@ bot.on('message', function(user, userID, channelID, message, event) {
     bot.sendMessage({ to: channelID, message: quote });
     return true;
   }
-}
 
 
 // Basic bot response template
