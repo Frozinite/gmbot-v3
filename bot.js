@@ -180,7 +180,7 @@ bot.on('message', function(user, userID, channelID, message, event) {
 
 // Function for !quote command - just gets a random quote from the database
 // There is no functionality in this bot to @ someone in discord yet
-if (message === "!quote") {
+if (message == "!quote") {
   bot.sendMessage({ to: channelID, message: "quote" });
   var quote = discordRandomQuote();
   bot.sendMessage({ to: channelID, message: quote });
