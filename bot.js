@@ -138,9 +138,10 @@ bot.on('message', function(user, userID, channelID, message, event) {
 
 // Function for !gif command
     var regex = /^\!gif (.+)/i;
+    var temp_message = message;
 
-    if (!regex.test(message)){ return false; }
-    var val = regex.exec(message);
+    if (!regex.test(temp_message)){ return false; }
+    var val = regex.exec(temp_message);
 
     //console.log('Received gif search for %s\n', val[1]);
     //bot.sendMessage({ to: channelID, message: val[1] });
