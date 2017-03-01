@@ -136,9 +136,10 @@ function cmdRandomQuote(funMode, request, callback) {
 }
 
 exports.discordRandomQuote = function() {
-  var msg = '';
+  //var msg = '';
   getOneRandomQuote(function(docs){
-      msg = docs.user_name + ': "' + docs.quote + '" - ' + docs.date;
+      var msg = docs.user_name + ': "' + docs.quote + '" - ' + docs.date;
+      return msg;
   });
-  return msg;
+  //return msg;
 }
