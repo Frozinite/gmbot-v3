@@ -1,7 +1,7 @@
 var db = require('../modules/db.js');
 var db_table = 'user_quotes';
 
-var cmds = [cmdSaveQuote, cmdRandomQuote, cmdRandomUserQuote, discordRandomQuote];
+var cmds = [cmdSaveQuote, cmdRandomQuote, cmdRandomUserQuote];
 
 function saveQuote(quoteHash, callback){
   db.addDoc(db_table, quoteHash, callback);
