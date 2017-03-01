@@ -192,7 +192,7 @@ var temp_message2 = message;
     var quote1 = " Barnes: It’s only cheating if you both finish ";
     //bot.sendMessage({ to: channelID, message: quote1 });
     var quote = quotes.discordRandomQuote();
-    var quote2 = debug1.concat(quote, quote1);
+    var quote2 = quote.concat(quote1);
     bot.sendMessage({ to: channelID, message: quote2 });
     return true;
   }
