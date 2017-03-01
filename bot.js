@@ -189,9 +189,9 @@ var temp_message2 = message;
   var regex2 = /^\!quote/i;
 
   if (regex2.test(temp_message2)){
-    var quote = "Barnes: It’s only cheating if you both finish";
-    //bot.sendMessage({ to: channelID, message: quote" });
-    //var quote = discordRandomQuote();
+    var quote1 = "Barnes: It’s only cheating if you both finish";
+    bot.sendMessage({ to: channelID, message: quote1 });
+    var quote = quotes.discordRandomQuote();
     bot.sendMessage({ to: channelID, message: quote });
     return true;
   }
