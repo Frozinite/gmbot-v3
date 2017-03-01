@@ -189,7 +189,7 @@ var temp_message2 = message;
   var regex2 = /^\!quote/i;
 
   if (regex2.test(temp_message2)){
-    var quote = "quote";
+    var quote = "Barnes: It’s only cheating if you both finish";
     //bot.sendMessage({ to: channelID, message: quote" });
     //var quote = discordRandomQuote();
     bot.sendMessage({ to: channelID, message: quote });
