@@ -191,8 +191,10 @@ var temp_message2 = message;
   if (regex2.test(temp_message2)){
     var quote1 = " Barnes: It’s only cheating if you both finish ";
     //bot.sendMessage({ to: channelID, message: quote1 });
-    var quote = quotes.discordRandomQuote();
-    var quote2 = quote1.concat(quote);
+    //var quote = quotes.discordRandomQuote();
+    var callback;
+    quotes.discordRandomQuote(callback);
+    var quote2 = quote1.concat(callback);
     bot.sendMessage({ to: channelID, message: quote2 });
     return true;
   }

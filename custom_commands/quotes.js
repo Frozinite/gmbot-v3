@@ -135,11 +135,11 @@ function cmdRandomQuote(funMode, request, callback) {
   }
 }
 
-exports.discordRandomQuote = function() {
+exports.discordRandomQuote = function(callback) {
   //var msg = '';
   getOneRandomQuote(function(docs){
       var msg = docs.user_name + ': "' + docs.quote + '" - ' + docs.date;
-      return msg;
+      callback(msg);
   });
   //return msg;
 }
