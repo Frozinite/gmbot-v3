@@ -210,7 +210,7 @@ var temp_message3 = message;
 
     var baegel_message = baegel_message1.concat(baegels, baegel_message2);
 
-    bot.sendMessage({ to: channelId, message: baegel_message });
+    bot.sendMessage({ to: channelID, message: baegel_message });
     return true;
   }
 
