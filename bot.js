@@ -204,7 +204,7 @@ var temp_message3 = message;
   var regex3 = /^!baegels/i;
 
   if (regex3.test(temp_message3)){
-    var baegels = Math.floor((Math.random() * 900) + 1);
+    var baegels = Math.floor((Math.random() * 10000) + 1);
     var baegel_message1 = "You have ";
     var baegel_message2 = " baegels.  Use them wisely!";
 
