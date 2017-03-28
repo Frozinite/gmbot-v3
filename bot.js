@@ -137,6 +137,7 @@ bot.on('disconnect', function(errMsg, code) {
 bot.on('message', function(user, userID, channelID, message, event) {
 var temp_message = message;
 var temp_message2 = message;
+var temp_message3 = message;
 
 
 // Function for !gif command
@@ -196,6 +197,20 @@ var temp_message2 = message;
     quotes.discordRandomQuote(callback);
     var quote2 = quote1.concat(callback);
     bot.sendMessage({ to: channelID, message: quote2 });
+    return true;
+  }
+
+// Function for !baegels command - just returns a random number
+  var regex3 = /^!baegels/i;
+
+  if (regex3.test(temp_message3)){
+    var baegels = Math.floor((Math.random() * 900) + 1);
+    var baegel_message1 = "You have ";
+    var baegel_message2 = " baegels.  Use them wisely!";
+
+    var baegel_message = baegel_message1.concat(baegels, baegel_message2);
+
+    bot.sendMessage({ to: channelId, message: baegel_message });
     return true;
   }
 
