@@ -129,7 +129,7 @@ bot.on('ready', function() {
 });
 
 bot.on('disconnect', function(errMsg, code) {
-    console.log('Got disconnected, reconnecting\n');
+    console.log('Got disconnected from Discord with code', code, 'for reason:', errMsg, '.  Attempting to reconnect.\n');
     bot.connect();
 });
 
