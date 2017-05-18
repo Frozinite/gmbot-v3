@@ -97,6 +97,7 @@ function cmdSaveWar(args) {
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     var day = date.getDate();
+    var time = date.getTime();
     date = year + "-" + month + "-" + day;
 
     var warHash = {
