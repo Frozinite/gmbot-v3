@@ -39,7 +39,10 @@ exports.warParser = function(command) {
 }
 
 function getHelp(){
-  var msg = "**Available war commands\n  list\n **";
+  var msg = "**Available war commands\n";
+  msg += "  help\n";
+  msg += "  schedule\n";
+  msg += " **";
 
   return msg;
 }
