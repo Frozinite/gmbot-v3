@@ -262,7 +262,7 @@ var temp_message5 = message;
         war_message = "**Triple arguments!\n**";
       }
     } else {
-      war_message = “**Not a valid command.  Use !war help for list of available commands\n**”;
+      war_message = "**Not a valid command.  Use !war help for list of available commands\n**";
     }
 
     bot.sendMessage({ to: channelID, message: war_message });
