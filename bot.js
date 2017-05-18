@@ -231,10 +231,11 @@ var temp_message5 = message;
     while ((regex5temparg = regex5.exec(temp_message5)) !== null){
       regex5argsArray[n] = regex5temparg[0].trim();
       //war_message = "Found argument " + n + " " + regex5argsArray[n] + "\n";
-      n++;
       //bot.sendMessage({ to: channelID, message: war_message });
+      n++;
     }
 
+    // Debug return of all the arguments
     //bot.sendMessage({ to: channelID, message: regex5argsArray });
 
     // No command or arguments, give list of commands
@@ -244,8 +245,11 @@ var temp_message5 = message;
       return true;
     }
 
-    bot.sendMessage({ to: channelID, message: regex5argsArray[1] });
+    // Debug return of the command
+    //bot.sendMessage({ to: channelID, message: regex5argsArray[1] });
 
+    // The different commands
+    // Consider using a switch statement
     if (regex5argsArray[1] === "list"){
       war_message = "**Under construction\n**";
     } else if (regex5argsArray[1] === "test"){
