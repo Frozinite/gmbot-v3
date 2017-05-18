@@ -25,7 +25,7 @@ var config       = require('./config/config.js');
 var HTTPS        = require('https');
 
 //Temporarily just an array of the commands functions. Make an object with configuration values.
-var checkCommandsHSH = [mods, sysTriggers, userCmds, userMentions, sysCommands, atEveryone, funCommands, quotes, rooms, gif, catFact, urbanDict];
+var checkCommandsHSH = [mods, sysTriggers, userCmds, userMentions, sysCommands, atEveryone, funCommands, quotes, rooms, gif, catFact, urbanDict, war];
 var bot = new Discord.Client({
     token: "MjgzNDcwNzg2MjM1NDY1NzI4.C46wXQ.X4gBZONwMVf06Xk1OgJ9iUg7b6g",
     autorun: true
