@@ -231,23 +231,30 @@ var temp_message5 = message;
     while ((regex5temparg = regex5.exec(temp_message5)) !== null){
       regex5argsArray[n] = regex5temparg[0];
       n++;
-      war_message = "Found argument" + regex5temparg[0] + "\n";
+      //war_message = "Found argument" + regex5temparg[0] + "\n";
+      //bot.sendMessage({ to: channelID, message: war_message });
+    }
+
+    // No command or arguments, give list of commands
+    if (regex5argsArray.length == 1){
+      war_message = "**Available war commands\n  list\n **";
       bot.sendMessage({ to: channelID, message: war_message });
+      return true;
     }
 
     //var regex_result = regex5.exec(temp_message5);
-    //if (regex_result[1] == "list"){
-    //  war_message = "**Under construction\n**";
-    //} else if (regex_result[1] == "test"){
-    //  if (regex_result[2] == "test"){
-    //    war_message = "**Double arguments\n**";
-    //  }
-    //  if (regex_result[3] == "test"){
-    //    war_message = "**Triple arguments!\n**";
-    //  }
-    //
-    //} else {
-    //}
+    if (regex5argsArray[1] == "list"){
+      war_message = "**Under construction\n**";
+    } else if (regex5argsArray[1] == "test"){
+      if (regex5argsArray[2] == "test"){
+        war_message = "**Double arguments\n**";
+      }
+      if (regex5argsArray[3] == "test"){
+        war_message = "**Triple arguments!\n**";
+      }
+    
+    } else {
+    }
 
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
