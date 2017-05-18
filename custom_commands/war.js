@@ -1,6 +1,16 @@
 var db = require('../modules/db.js');
 var db_table = 'wars';
 
+
+exports.warParser = function(arguments, warMessage) {
+
+  warMessage = "woot\n";
+
+
+
+}
+
+
 function saveWar(warHash, callback){
   db.addDoc(db_table, warHash, callback);
 }

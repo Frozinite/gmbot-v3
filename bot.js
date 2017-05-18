@@ -220,55 +220,15 @@ var temp_message5 = message;
 
 // Parent function for !war command, calls the other functions
   var regex4 = /^!war/i;
-  //var regex5 = /^!war (\S+) ?(.+)*/i;
-  var regex5 = / ?(\S+) ?/ig;
-  var war_message = "Invalid command\n";
+  var warMessage;
 
   if (regex4.test(temp_message4)){
-    var regex5argsArray = [];
-    var regex5temparg;
-    var n = 0;
+    war.warPaser(temp_message4, warMessage);
+  }
 
-    while ((regex5temparg = regex5.exec(temp_message5)) !== null){
-      regex5argsArray[n] = regex5temparg[0].trim();
-      //war_message = "Found argument " + n + " " + regex5argsArray[n] + "\n";
-      //bot.sendMessage({ to: channelID, message: war_message });
-      n++;
-    }
+  bot.sendMessage({ to: channelID, message: warMessage });
 
-    // Debug return of all the arguments
-    //bot.sendMessage({ to: channelID, message: regex5argsArray });
-
-    // No command or arguments, give list of commands
-    if (regex5argsArray.length == 1){
-      war_message = "**Available war commands\n  list\n **";
-      bot.sendMessage({ to: channelID, message: war_message });
-      return true;
-    }
-
-    // Debug return of the command
-    //bot.sendMessage({ to: channelID, message: regex5argsArray[1] });
-
-    // The different commands
-    // Consider using a switch statement
-    if (regex5argsArray[1] === "help"){
-      war_message = "**Under construction\n**";
-    } else if (regex5argsArray[1] === "schedule"){
-      war_message = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**";
-      war_message += "\n\n**Upcoming Arranged Wars:\n**";
-    } else if (regex5argsArray[1] === "test"){
-      if (regex5argsArray[2] === "test"){
-        war_message = "**Double arguments\n**";
-      }
-      if (regex5argsArray[3] === "test"){
-        war_message = "**Triple arguments!\n**";
-      }
-    } else {
-      war_message = "**Not a valid command.  Use !war help for list of available commands\n**";
-    }
-
-    bot.sendMessage({ to: channelID, message: war_message });
-    return true;
+  return true;
   }
 
 
