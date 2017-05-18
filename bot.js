@@ -231,8 +231,8 @@ var temp_message5 = message;
     while ((regex5temparg = regex5.exec(temp_message5)) !== null){
       regex5argsArray[n] = regex5temparg[0];
       n++;
-      war_message = "Found argument " + n + " " + regex5temparg[0] + "\n";
-      bot.sendMessage({ to: channelID, message: war_message });
+      //war_message = "Found argument " + n + " " + regex5temparg[0] + "\n";
+      //bot.sendMessage({ to: channelID, message: war_message });
     }
 
     // No command or arguments, give list of commands
@@ -255,7 +255,7 @@ var temp_message5 = message;
     } else {
     }
 
-    //bot.sendMessage({ to: channelID, message: war_message });
+    bot.sendMessage({ to: channelID, message: war_message });
     return true;
   } else if (regex4.test(temp_message4)){
     war_message = "**Available war commands\n  list\n **";
