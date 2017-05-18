@@ -254,7 +254,7 @@ var temp_message5 = message;
       war_message = "**Under construction\n**";
     } else if (regex5argsArray[1] === "schedule"){
       war_message = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm PST; 5am UTC).**";
-      war_message += “\n\n**Upcoming Arranged Wars:\n**”;
+      war_message += "\n\n**Upcoming Arranged Wars:\n**";
     } else if (regex5argsArray[1] === "test"){
       if (regex5argsArray[2] === "test"){
         war_message = "**Double arguments\n**";
