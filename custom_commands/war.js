@@ -5,7 +5,6 @@ var db_table = 'wars';
 exports.warParser = function(arguments) {
   var warMessage = "woot\n";
 
-
   return warMessage;
 }
 
