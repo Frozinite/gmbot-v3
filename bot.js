@@ -235,22 +235,19 @@ var temp_message5 = message;
       bot.sendMessage({ to: channelID, message: war_message });
     }
 
-    var regex_result = regex5.exec(temp_message5);
-
-    if (regex_result[1] == "list"){
-      war_message = "**Under construction\n**";
-    } else if (regex_result[1] == "test"){
-      if (regex_result[2] == "test"){
-        war_message = "**Double arguments\n**";
-      }
-      if (regex_result[3] == "test"){
-        war_message = "**Triple arguments!\n**";
-      }
-
-      bot.sendMessage({ to: channelID, message: war_message });
-      return true;
-    } else {
-    }
+    //var regex_result = regex5.exec(temp_message5);
+    //if (regex_result[1] == "list"){
+    //  war_message = "**Under construction\n**";
+    //} else if (regex_result[1] == "test"){
+    //  if (regex_result[2] == "test"){
+    //    war_message = "**Double arguments\n**";
+    //  }
+    //  if (regex_result[3] == "test"){
+    //    war_message = "**Triple arguments!\n**";
+    //  }
+    //
+    //} else {
+    //}
 
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
