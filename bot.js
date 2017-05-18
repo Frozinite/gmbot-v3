@@ -250,8 +250,10 @@ var temp_message5 = message;
 
     // The different commands
     // Consider using a switch statement
-    if (regex5argsArray[1] === "list"){
+    if (regex5argsArray[1] === "help"){
       war_message = "**Under construction\n**";
+    } else if (regex5argsArray[1] === "schedule"){
+      war_message = "***All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches start between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm PST; 5am UTC).***";
     } else if (regex5argsArray[1] === "test"){
       if (regex5argsArray[2] === "test"){
         war_message = "**Double arguments\n**";
