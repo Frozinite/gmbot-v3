@@ -7,6 +7,7 @@ exports.warParser = function(command) {
 
   var argsArray = [];
   var regex = / ?(\S+) ?/ig;
+  var n = 0;
 
   while ((tmp = regex.exec(command)) !== null){
     argsArray[n] = tmp[0].trim();
