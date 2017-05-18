@@ -18,6 +18,7 @@ var funCommands  = require('./custom_commands/fun-commands.js');
 var gif          = require('./custom_commands/giphy-api.js');
 var catFact      = require('./custom_commands/cat-fact.js');
 var urbanDict    = require('./custom_commands/urban-dictionary.js');
+var war          = require('./custom_commands/war.js');
 
 //load config
 var config       = require('./config/config.js');
@@ -253,7 +254,7 @@ var temp_message5 = message;
     if (regex5argsArray[1] === "help"){
       war_message = "**Under construction\n**";
     } else if (regex5argsArray[1] === "schedule"){
-      war_message = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm PST; 5am UTC).**";
+      war_message = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**";
       war_message += "\n\n**Upcoming Arranged Wars:\n**";
     } else if (regex5argsArray[1] === "test"){
       if (regex5argsArray[2] === "test"){
