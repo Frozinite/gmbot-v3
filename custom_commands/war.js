@@ -39,7 +39,9 @@ exports.warParser = function(command) {
 }
 
 function getHelp(){
-  var msg = "**Available war commands\n";
+  var msg = "";
+
+  msg += "**Available war commands\n";
   msg += "  help\n";
   msg += "  schedule\n";
   msg += " **";
@@ -48,7 +50,13 @@ function getHelp(){
 }
 
 function getSchedule(){
-  var msg = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**";
+  var msg = "";
+
+  msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n”;
+  msg += "**Unless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**\n\n";
+
+  msg += "**Currently Scheduled Arranged Wars:**\n”;
+  msg += "  none\n";
 
   return msg;
 }
