@@ -229,7 +229,7 @@ var temp_message5 = message;
     var n = 0;
 
     while ((regex5temparg = regex5.exec(temp_message5)) !== null){
-      regex5argsArray[n] = regex5temparg[0].trim;
+      regex5argsArray[n] = regex5temparg[0].trim();
       //war_message = "Found argument " + n + " " + regex5argsArray[n] + "\n";
       n++;
       //bot.sendMessage({ to: channelID, message: war_message });
