@@ -19,6 +19,7 @@ exports.warParser = function(command) {
   // No command or arguments, give list of commands
   if (argsArray.length == 1){
     warMessage = getHelp();
+    return warMessage;
   }
 
   switch(argsArray[1]){
