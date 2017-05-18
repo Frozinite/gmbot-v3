@@ -246,7 +246,6 @@ var temp_message5 = message;
 
     bot.sendMessage({ to: channelID, message: regex5argsArray[1] });
 
-    //var regex_result = regex5.exec(temp_message5);
     if (regex5argsArray[1] === "list"){
       war_message = "**Under construction\n**";
     } else if (regex5argsArray[1] === "test"){
@@ -257,6 +256,7 @@ var temp_message5 = message;
         war_message = "**Triple arguments!\n**";
       }
     } else {
+      war_message = "**You screwed up\n**";
     }
 
     //bot.sendMessage({ to: channelID, message: war_message });
