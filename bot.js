@@ -224,7 +224,7 @@ var temp_message5 = message;
   var war_message = "Invalid command\n";
 
   if (regex5.test(temp_message5)){
-    var regex5args = /(\S+) ?/g;
+    var regex5args = / ?(\S+) ?/g;
     var regex5argsArray;
     var regex5temparg;
     var n = 0;
