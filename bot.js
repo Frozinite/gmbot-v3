@@ -235,6 +235,8 @@ var temp_message5 = message;
       //bot.sendMessage({ to: channelID, message: war_message });
     }
 
+    bot.sendMessage({ to: channelID, message: regex5argsArray });
+
     // No command or arguments, give list of commands
     if (regex5argsArray.length == 1){
       war_message = "**Available war commands\n  list\n **";
