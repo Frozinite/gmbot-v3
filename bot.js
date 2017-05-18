@@ -243,13 +243,13 @@ var temp_message5 = message;
     }
 
     //var regex_result = regex5.exec(temp_message5);
-    if (regex5argsArray[1] == "list"){
+    if (regex5argsArray[0] == "list"){
       war_message = "**Under construction\n**";
-    } else if (regex5argsArray[1] == "test"){
-      if (regex5argsArray[2] == "test"){
+    } else if (regex5argsArray[0] == "test"){
+      if (regex5argsArray[1] == "test"){
         war_message = "**Double arguments\n**";
       }
-      if (regex5argsArray[3] == "test"){
+      if (regex5argsArray[2] == "test"){
         war_message = "**Triple arguments!\n**";
       }
     } else {
