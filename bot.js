@@ -225,8 +225,13 @@ var temp_message5 = message;
   if (regex5.test(temp_message5)){
     var regex_result = regex5.exec(temp_message5);
 
-    if (1){
+    if (regex_result[1] == "list"){
       war_message = "**Under construction\n**";
+    }else if (regex_result[1] == "test"){
+      if (regex_result[2] == "test"){
+        war_message = “**Double arguments\n**";
+      }
+    }else
     }
 
     bot.sendMessage({ to: channelID, message: war_message });
