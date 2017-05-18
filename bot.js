@@ -259,7 +259,7 @@ var temp_message5 = message;
       war_message = "**You screwed up\n**";
     }
 
-    //bot.sendMessage({ to: channelID, message: war_message });
+    bot.sendMessage({ to: channelID, message: war_message });
     return true;
   }
 
