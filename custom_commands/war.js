@@ -8,7 +8,7 @@ exports.warParser = function(command) {
   var argsArray = [];
   var regex = / ?(\S+) ?/ig;
 
-  while ((var tmp = regex.exec(command)) !== null){
+  while ((tmp = regex.exec(command)) !== null){
     argsArray[n] = tmp[0].trim();
     //warMessage = "Found argument " + n + " " + regex5argsArray[n] + "\n";
     //bot.sendMessage({ to: channelID, message: warMessage });
