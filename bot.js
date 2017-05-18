@@ -224,13 +224,13 @@ var temp_message5 = message;
 
   if (regex5.test(temp_message5)){
     if (1){
-      war_message = "Under construction\n";
+      war_message = "**Under construction\n**";
     }
 
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
   } else if (regex4.test(temp_message4)){
-    war_message = "Available war commands\n list\n ";
+    war_message = "**Available war commands\n list\n **";
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
   }
