@@ -231,6 +231,9 @@ var temp_message5 = message;
       if (regex_result[2] == "test"){
         war_message = "**Double arguments\n**";
       }
+      if (regex_result[3] == "test"){
+        war_message = "**Triple arguments!\n**";
+      }
     } else {
     }
 
