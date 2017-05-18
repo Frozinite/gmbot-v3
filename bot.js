@@ -138,10 +138,12 @@ bot.on('message', function(user, userID, channelID, message, event) {
 var temp_message = message;
 var temp_message2 = message;
 var temp_message3 = message;
+var temp_message4 = message;
+var temp_message5 = message;
 
 
 // Function for !gif command
-  var regex = /^\!gif (.+)/i;
+  var regex = /^!gif (.+)/i;
 
   if (regex.test(temp_message)){
     var val = regex.exec(temp_message);
@@ -187,7 +189,7 @@ var temp_message3 = message;
 
 // Function for !quote command - just gets a random quote from the database
 // There is no functionality in this bot to @ someone in discord yet
-  var regex2 = /^\!quote/i;
+  var regex2 = /^!quote/i;
 
   if (regex2.test(temp_message2)){
     var quote1 = " Barnes: It’s only cheating if you both finish ";
@@ -213,6 +215,27 @@ var temp_message3 = message;
     bot.sendMessage({ to: channelID, message: baegel_message });
     return true;
   }
+
+
+// Parent function for !war command, calls the other functions
+  var regex4 = /^!war/i;
+  var regex5 = /^!war (\S+) (.+)/i;
+  var war_message = "Invalid command\n";
+
+  if (regex5.test(temp_message5)){
+    if (1){
+      war_message = "Under construction\n";
+    }
+
+    bot.sendMessage({ to: channelID, message: war_message });
+    return true;
+  } else if (regex4.test_temp_message4)){
+    war_message = "Available war commands\n list\n ";
+    bot.sendMessage({ to: channelID, message: war_message });
+    return true;
+  }
+
+
 
 
 // Basic bot response template
