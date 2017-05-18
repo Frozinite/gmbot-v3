@@ -54,7 +54,7 @@ function cmdSaveWar(request, callback) {
       }
 
       saveWar(warHash);
-      msg = “War saved!";
+      msg = "War saved!";
     }
     callback(msg);
     return msg;
