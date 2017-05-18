@@ -29,6 +29,9 @@ exports.warParser = function(command) {
     case "schedule":
       warMessage = getSchedule();
       break;
+    case "create":
+      cmdSaveWar(argsArray);
+      break;
     default:
       warMessage = "Invalid command\n\n";
       warMessage += getHelp();
@@ -52,15 +55,14 @@ function getHelp(){
 function getSchedule(){
   var msg = "";
 
-  msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n”;
+  msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
   msg += "**Unless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**\n\n";
 
-  msg += "**Currently Scheduled Arranged Wars:**\n”;
+  msg += "**Upcoming Arranged Wars:**\n";
   msg += "  none\n";
 
   return msg;
 }
-
 
 function saveWar(warHash, callback){
   db.addDoc(db_table, warHash, callback);
@@ -75,13 +77,11 @@ function countWars(callback){
 }
 
 
-function cmdSaveWar(request, callback) {
-  var regex = /^\/quote save ([\s\S]+)/i;
+function cmdSaveWar(args) {
+//  var val = regex.exec(request.text);
+  var msg = "";
 
-  if (regex.test(request.text)){
-    
-    var val = regex.exec(request.text);
-    var msg = "";
+  
 
     if (!request.attachments[0].user_ids) {
       msg = "You have to @user for the person you're trying to quote.";
