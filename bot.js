@@ -227,11 +227,11 @@ var temp_message5 = message;
 
     if (regex_result[1] == "list"){
       war_message = "**Under construction\n**";
-    }else if (regex_result[1] == "test"){
+    } else if (regex_result[1] == "test"){
       if (regex_result[2] == "test"){
         war_message = "**Double arguments\n**";
       }
-    }else
+    } else {
     }
 
     bot.sendMessage({ to: channelID, message: war_message });
