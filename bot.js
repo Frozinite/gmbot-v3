@@ -228,7 +228,7 @@ var temp_message5 = message;
     var regex5temparg;
     var n = 0;
 
-    while ((regex5temparg = regex5args.exec(temp_message5)) !== null){
+    while ((regex5temparg = regex5.exec(temp_message5)) !== null){
       regex5argsArray[n] = regex5temparg[0];
       n++;
       war_message = "Found argument" + regex5temparg[0] + "\n";
