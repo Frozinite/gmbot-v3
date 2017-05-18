@@ -244,6 +244,8 @@ var temp_message5 = message;
       return true;
     }
 
+    bot.sendMessage({ to: channelID, message: regex5argsArray[1] });
+
     //var regex_result = regex5.exec(temp_message5);
     if (regex5argsArray[1] === "list"){
       war_message = "**Under construction\n**";
