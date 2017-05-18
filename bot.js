@@ -229,7 +229,7 @@ var temp_message5 = message;
       war_message = "**Under construction\n**";
     }else if (regex_result[1] == "test"){
       if (regex_result[2] == "test"){
-        war_message = “**Double arguments\n**";
+        war_message = "**Double arguments\n**";
       }
     }else
     }
