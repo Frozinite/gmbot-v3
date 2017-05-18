@@ -24,6 +24,7 @@ exports.warParser = function(command) {
 
   switch(argsArray[1]){
     case "help":
+      warMessage = getHelp();
       break;
     case "schedule":
       warMessage = getSchedule();
@@ -32,9 +33,7 @@ exports.warParser = function(command) {
       warMessage = "Invalid command\n\n";
       warMessage += getHelp();
       break;
-
   }
-
 
   return warMessage;
 }
