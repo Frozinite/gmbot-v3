@@ -22,7 +22,7 @@ exports.warParser = function(command) {
   }
 
   switch(argsArray[1]){
-    case "help”:
+    case "help":
       break;
     case "schedule":
       warMessage = getSchedule();
