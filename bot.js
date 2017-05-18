@@ -253,7 +253,7 @@ var temp_message5 = message;
     if (regex5argsArray[1] === "help"){
       war_message = "**Under construction\n**";
     } else if (regex5argsArray[1] === "schedule"){
-      war_message = "***All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches start between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm PST; 5am UTC).***";
+      war_message = "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm PST; 5am UTC).**";
     } else if (regex5argsArray[1] === "test"){
       if (regex5argsArray[2] === "test"){
         war_message = "**Double arguments\n**";
@@ -262,7 +262,7 @@ var temp_message5 = message;
         war_message = "**Triple arguments!\n**";
       }
     } else {
-      war_message = "**You screwed up\n**";
+      war_message = “**Not a valid command.  Use !war help for list of available commands\n**”;
     }
 
     bot.sendMessage({ to: channelID, message: war_message });
