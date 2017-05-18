@@ -219,10 +219,12 @@ var temp_message5 = message;
 
 // Parent function for !war command, calls the other functions
   var regex4 = /^!war/i;
-  var regex5 = /^!war (\S+) ?(.+)?/i;
+  var regex5 = /^!war (\S+) ?(.+)*/i;
   var war_message = "Invalid command\n";
 
   if (regex5.test(temp_message5)){
+    regex5.exec(temp_message5);
+
     if (1){
       war_message = "**Under construction\n**";
     }
@@ -230,7 +232,7 @@ var temp_message5 = message;
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
   } else if (regex4.test(temp_message4)){
-    war_message = "**Available war commands\n list\n **";
+    war_message = "**Available war commands\n  list\n **";
     bot.sendMessage({ to: channelID, message: war_message });
     return true;
   }
