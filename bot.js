@@ -219,10 +219,21 @@ var temp_message5 = message;
 
 // Parent function for !war command, calls the other functions
   var regex4 = /^!war/i;
-  var regex5 = /^!war (\S+) ?(.+)*/i;
+  //var regex5 = /^!war (\S+) ?(.+)*/i;
+  var regex5 = /^!war (.+)/i;
   var war_message = "Invalid command\n";
 
   if (regex5.test(temp_message5)){
+    var regex5args = / (\S+)/g;
+    var regex5argsArray;
+    var regex5temparg;
+    var n = 0;
+
+    while ((regex5temparg = regex5args.exec(temp_message5)) !== null){
+      regex5argsArray[n] = regex5temparg[0];
+      n++;
+    }
+
     var regex_result = regex5.exec(temp_message5);
 
     if (regex_result[1] == "list"){
