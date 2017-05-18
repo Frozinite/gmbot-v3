@@ -223,7 +223,7 @@ var temp_message5 = message;
   var war_message = "Invalid command\n";
 
   if (regex5.test(temp_message5)){
-    regex5.exec(temp_message5);
+    var regex_result = regex5.exec(temp_message5);
 
     if (1){
       war_message = "**Under construction\n**";
