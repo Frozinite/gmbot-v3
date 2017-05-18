@@ -2,9 +2,10 @@ var db = require('../modules/db.js');
 var db_table = 'wars';
 
 
-exports.warParser = function(arguments) {
+exports.warParser = function(arguments, callback) {
   var warMessage = "woot\n";
 
+  callback = warMessage;
   return warMessage;
 }
 
