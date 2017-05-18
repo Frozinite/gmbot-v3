@@ -2,8 +2,25 @@ var db = require('../modules/db.js');
 var db_table = 'wars';
 
 
-exports.warParser = function(arguments) {
-  var warMessage = "woot\n";
+exports.warParser = function(command) {
+  var warMessage = "";
+
+  var argsArray = [];
+  var regex = / ?(\S+) ?/ig;
+
+  while ((var tmp = regex.exec(command)) !== null){
+    argsArray[n] = tmp[0].trim();
+    //warMessage = "Found argument " + n + " " + regex5argsArray[n] + "\n";
+    //bot.sendMessage({ to: channelID, message: warMessage });
+    n++;
+  }
+
+    // No command or arguments, give list of commands
+    if (argsArray.length == 1){
+      warMessage = "**Available war commands\n  list\n **";
+    }
+
+
 
   return warMessage;
 }
