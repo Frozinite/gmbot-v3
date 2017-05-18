@@ -16,16 +16,32 @@ exports.warParser = function(command) {
     n++;
   }
 
-    // No command or arguments, give list of commands
-    if (argsArray.length == 1){
-      warMessage = "**Available war commands\n  list\n **";
-    }
+  // No command or arguments, give list of commands
+  if (argsArray.length == 1){
+    warMessage = "**Available war commands\n  list\n **";
+  }
 
+  switch(argsArray[1]){
+    case "help”:
+      break;
+    case "schedule":
+      warMessage = getSchedule();
+      break;
+    default:
+      warMessage = "Invalid command";
+      break;
+
+  }
 
 
   return warMessage;
 }
 
+function getSchedule(){
+  var msg = "All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.\nUnless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).";
+
+  return msg;
+}
 
 function saveWar(warHash, callback){
   db.addDoc(db_table, warHash, callback);
