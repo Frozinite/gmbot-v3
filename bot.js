@@ -220,7 +220,7 @@ var temp_message5 = message;
 // Parent function for !war command, calls the other functions
   var regex4 = /^!war/i;
   //var regex5 = /^!war (\S+) ?(.+)*/i;
-  var regex5 = /^ ?(\S+) ?/ig;
+  var regex5 = / ?(\S+) ?/ig;
   var war_message = "Invalid command\n";
 
   if (regex4.test(temp_message4)){
