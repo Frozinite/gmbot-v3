@@ -246,6 +246,9 @@ var temp_message5 = message;
       if (regex_result[3] == "test"){
         war_message = "**Triple arguments!\n**";
       }
+
+      bot.sendMessage({ to: channelID, message: war_message });
+      return true;
     } else {
     }
 
