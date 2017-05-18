@@ -29,7 +29,7 @@ exports.warParser = function(command) {
     case "schedule":
       warMessage = getSchedule();
       break;
-    case "create":
+    case "new":
       cmdSaveWar(argsArray);
       break;
     default:
@@ -79,48 +79,38 @@ function countWars(callback){
 
 function cmdSaveWar(args) {
 //  var val = regex.exec(request.text);
+  var callback;
   var msg = "";
 
-  
+  if (args.length == 3) {
+    var user_id = request.attachments[0].user_ids[0];
 
-    if (!request.attachments[0].user_ids) {
-      msg = "You have to @user for the person you're trying to quote.";
-    } else if (!request.attachments[0].loci[0][1] == 12) {
-      msg = "Please @the person you're quoting before their message. EX: /quote save @user this is their quote";
-    } else if (request.attachments[0].user_ids.length > 1) {
-      msg = "You can only quote 1 user at a time.";
-    } else if (val[1].length <= request.attachments[0].loci[0][1]){
-      msg = "... You want to quote their silence?";
-    } else {
-      var user_id = request.attachments[0].user_ids[0];
+    var start = request.attachments[0].loci[0][0];
+    var end = start + request.attachments[0].loci[0][1];
+    var user_name = request.text.substring(start, end);
 
-      var start = request.attachments[0].loci[0][0];
-      var end = start + request.attachments[0].loci[0][1];
-      var user_name = request.text.substring(start, end);
-
-      var quote = request.text.substring(end, request.text.length);
-      quote = quote.trim();
+    var quote = request.text.substring(end, request.text.length);
+    quote = quote.trim();
 
 
-      var date = new Date();
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var day = date.getDate();
-      date = year + "-" + month + "-" + day;
-      var warHash = {
-        user_id: user_id,
-        user_name: user_name,
-        war: war,
-        date: date
-      }
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    date = year + "-" + month + "-" + day;
 
-      saveWar(warHash);
-      msg = "War saved!";
+    var warHash = {
+      war_id: war_id,
+      war_name: war_name,
+      date: date
+      time: time
     }
-    callback(msg);
+
+    //saveWar(warHash, callback);
+    msg = "War saved!";
     return msg;
   } else {
-    return false;
+    return "Failed to save war.  You probably gave the wrong arguments, idiot\n";
   }
 }
 
