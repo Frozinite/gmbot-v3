@@ -74,6 +74,7 @@ function findWar(id, callback){
 
 function countWars(callback){
   var ret = db.countDocs(db_table, function(count){
+    console.log(count);
     return count;
   });
   return ret;
