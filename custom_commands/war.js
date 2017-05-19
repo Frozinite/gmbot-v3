@@ -54,8 +54,9 @@ function getHelp(callback){
 }
 
 function getSchedule(callback){
+  var msg = "";
+
   findAllWars(function(docs){
-    var msg = "";
 
     msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
     msg += "**Unless otherwise specified, all war searches occur between 3pm PST (6pm EST; 10pm UTC) to 6pm PST (9pm EST; 4am UTC).**\n\n";
@@ -74,6 +75,7 @@ function getSchedule(callback){
     }
 
     callback(msg);
+    return msg;
   });
 }
 
