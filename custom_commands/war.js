@@ -73,8 +73,8 @@ function findWar(id, callback){
 }
 
 function countWars(callback){
-  return db.countDocs(db_table);
-  //return callback;
+  var ret = db.countDocs(db_table);
+  return ret;
 }
 
 function cmdSaveWar(args) {
