@@ -64,9 +64,9 @@ function getSchedule(callback){
     // Query the database for all the wars
     msg += "**Upcoming Arranged Wars:**\n";
 
-
     for(var count = 1; count <= docs.length; count++){
       console.log("Got a war \n");
+      console.log(docs[count]);
       msg += "  Got a war \n";
     }
 
