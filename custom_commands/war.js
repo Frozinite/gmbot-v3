@@ -107,7 +107,7 @@ function cmdSaveWar(args) {
     }
 
     //saveWar(warHash, callback);
-    msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name " war on " + date + " at " + time + "\n";
+    msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + "\n";
     return msg;
   } else {
     return "Failed to create a new war.  The proper command is \“!war save <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n";
