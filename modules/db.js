@@ -71,6 +71,7 @@ exports.removeOneDoc = function(collection, findJson, callback) {
 }
 
 exports.countDocs = function (collection, callback) {
+  var count;
   connect(function(db){
     var ret = db.collection(collection).count(function(err, result){
       //if (callback)
@@ -79,10 +80,10 @@ exports.countDocs = function (collection, callback) {
         //console.log(err);
       console.log(result);
       db.close();
-      return result;
+      count = result;
     });
-    console.log(ret);
-    return ret;
+    console.log(count);
+    return count;
   });
 }
 
