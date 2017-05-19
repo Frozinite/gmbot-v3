@@ -73,22 +73,7 @@ function findWar(id, callback){
 }
 
 function countWars(callback){
-  var countPromise = new Promise(function(resolve){
-    db.countDocs(db_table, function(result){
-      //callback(result);
-      resolve(result);
-    });
-    //resolve(result);
-  });
-
-  var count = countPromise.then(function(result){
-    console.log(result);
-    return result;
-  });
-
-  //console.log(count);
-  //return count;
-  return 1;
+  db.countDocs(db_table, callback)
 }
 
 function cmdSaveWar(args) {
@@ -97,10 +82,17 @@ function cmdSaveWar(args) {
   var msg = "";
 
   if (args.length == 7) {
-    var war_id = countWars();
+    // database queries are asynchronous, forcing everything into a callback
+    countWars(function(result){
 
-    msg = "There have been " + war_id + " wars";
-    return msg;
+      var war_id = result;
+      msg = "There have been " + war_id + " wars";
+      return msg;
+
+    });
+
+    //msg = "There have been " + war_id + " wars";
+    //return msg;
 
     var host_clan = args[2]
     var war_name = args[3];
@@ -129,7 +121,7 @@ function cmdSaveWar(args) {
       time: time
     }
 
-    saveWar(warHash, callback);
+    //saveWar(warHash, callback);
     msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
     return msg;
   } else {
