@@ -82,11 +82,13 @@ function countWars(callback){
   });
 
   var count = countPromise.then(function(result){
+    console.log(result);
     return result;
   });
 
-  console.log(count);
-  return count;
+  //console.log(count);
+  //return count;
+  return 1;
 }
 
 function cmdSaveWar(args) {
