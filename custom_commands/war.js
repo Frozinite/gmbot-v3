@@ -82,11 +82,12 @@ function cmdSaveWar(args) {
   var callback;
   var msg = "";
 
-  if (args.length == 5) {
+  if (args.length == 6) {
     var war_id = 1;
-    var war_name = args[2];
-    var date = args[3];
-    var time = args[4];
+    var host_clan = args[2]
+    var war_name = args[3];
+    var date = args[4];
+    var time = args[5];
 
     var warHash = {
       war_id: war_id,
@@ -99,7 +100,7 @@ function cmdSaveWar(args) {
     msg = "War saved!";
     return msg;
   } else {
-    return "Failed to save war.  The proper command is \“!war save <host clan> <opponent> <date> <time>\”.  Date must be in the format dd/mm/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war save mutiny EE 3/14/2017 5pm_EST\”\n”;
+    return "Failed to save war.  The proper command is \“!war save <host_clan> <opponent> <date> <time>\”.  Date must be in the format dd/mm/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war save mutiny EE 3/14/2017 5pm_EST\” or \“!war save RT potluck 6/23/2017 5pm_EST\”\n";
   }
 }
 
