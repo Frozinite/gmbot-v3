@@ -82,6 +82,8 @@ function cmdSaveWar(args) {
   var msg = "";
 
   if (args.length == 7) {
+    var war_id;
+
     // database queries are asynchronous, forcing everything into a callback
     countWars(function(result){
 
