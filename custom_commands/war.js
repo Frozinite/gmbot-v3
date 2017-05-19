@@ -73,18 +73,19 @@ function findWar(id, callback){
 }
 
 function countWars(callback){
-  var ret = new Promise(function(resolve){
+  var countPromise = new Promise(function(resolve){
     db.countDocs(db_table, function(result){
       callback(result);
     });
     resolve(result);
   });
 
-  ret.then(function(result){
+  var count = countPromise.then(function(result){
     return result;
   });
-  console.log(ret);
-  return ret;
+
+  console.log(count);
+  return count;
 }
 
 function cmdSaveWar(args) {
