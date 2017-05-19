@@ -78,9 +78,10 @@ exports.countDocs = function (collection, callback) {
       //  callback(result);
       //if (err)
         //console.log(err);
-      //console.log(result);
-      db.close();
       count = result;
+      //console.log(result);
+      console.log(count);
+      db.close();
     });
     console.log(count);
     return count;
