@@ -94,7 +94,7 @@ function cmdSaveWar(args) {
     if(date_regex.test(date) == false){
       msg = "Incorrect date format.  Date must be in the format dd/mm/yyyy.";
       return msg;
-    )
+    }
 
     var warHash = {
       war_id: war_id,
