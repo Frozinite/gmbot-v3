@@ -223,9 +223,13 @@ var temp_message5 = message;
   var warMessage;
 
   if (regex4.test(temp_message4)){
-    warMessage = war.warParser(temp_message4);
+    warMessage = war.warParser(temp_message4, function(msg){
 
-    bot.sendMessage({ to: channelID, message: warMessage });
+      bot.sendMessage({ to: channelID, message: msg });
+
+    });
+
+    //bot.sendMessage({ to: channelID, message: warMessage });
 
     return true;
   }

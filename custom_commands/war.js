@@ -2,7 +2,7 @@ var db = require('../modules/db.js');
 var db_table = 'wars';
 
 
-exports.warParser = function(command) {
+exports.warParser = function(command, callback) {
   var warMessage = "";
 
   var argsArray = [];
@@ -30,7 +30,7 @@ exports.warParser = function(command) {
       warMessage = getSchedule();
       break;
     case "new":
-      warMessage = cmdSaveWar(argsArray);
+      warMessage = cmdSaveWar(argsArray, callback);
       break;
     default:
       warMessage = "Invalid command\n\n";
@@ -76,25 +76,20 @@ function countWars(callback){
   db.countDocs(db_table, callback)
 }
 
-function cmdSaveWar(args) {
+function cmdSaveWar(args, callback) {
 //  var val = regex.exec(request.text);
-  var callback;
   var msg = "";
 
   if (args.length == 7) {
-    var war_id;
-
     // database queries are asynchronous, forcing everything into a callback
     countWars(function(result){
 
       var war_id = result;
       msg = "There have been " + war_id + " wars";
-      return msg;
+      callback(msg);
 
-    });
 
-    //msg = "There have been " + war_id + " wars";
-    //return msg;
+
 
     var host_clan = args[2]
     var war_name = args[3];
@@ -125,10 +120,14 @@ function cmdSaveWar(args) {
 
     //saveWar(warHash, callback);
     msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
-    return msg;
+    callback(msg);
   } else {
-    return "Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n";
+    callback("Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n");
   }
+
+
+
+    });
 }
 
 function cmdGetWar(request, callback) {
