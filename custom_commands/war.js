@@ -77,6 +77,7 @@ function countWars(callback){
     console.log(result);
     return result;
   });
+  console.log(ret);
   return ret;
 }
 
