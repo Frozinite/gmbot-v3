@@ -66,7 +66,7 @@ function getSchedule(callback){
     var num_wars = docs.length;
 
     for(var count = 1; count <= num_wars; count++){
-      msg += "Got a war \n";
+      msg += "  Got a war \n";
     }
 
     if (num_wars == 0){
@@ -87,7 +87,7 @@ function findWar(id, callback){
 }
 
 function findAllWars(id, callback){
-  db.findAllDocuments(db_table, callback);
+  db.getAllDocuments(db_table, callback);
 }
 
 function countWars(callback){
