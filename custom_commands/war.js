@@ -73,7 +73,7 @@ function findWar(id, callback){
 }
 
 function countWars(callback){
-  return db.countDocs(db_table, callback);
+  return db.countDocs(db_table);
   //return callback;
 }
 
