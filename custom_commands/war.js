@@ -84,52 +84,42 @@ function cmdSaveWar(args, callback) {
     // database queries are asynchronous, forcing everything into a callback
     countWars(function(result){
 
-      var war_id = result;
-      msg = "There have been " + war_id + " wars";
+      var war_id = result+1;
+      var host_clan = args[2]
+      var war_name = args[3];
+      var date = args[4];
+      var time = args[5];
+      var timezone = args[6];
+
+      var d = date.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+      if(d){
+        date = new Date(d[3], d[1]-1, d[2]);
+
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        date = month + "/" + day + "/" + year;
+      }else{
+        msg = "Incorrect date format.  Date must be in the format mm/dd/yyyy.";
+        return msg;
+      }
+
+      var warHash = {
+        war_id: war_id,
+        host_clan: host_clan,
+        war_name: war_name,
+        date: date,
+        time: time
+      }
+
+      //saveWar(warHash, callback);
+      msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
       callback(msg);
-
-
-
-
-    var host_clan = args[2]
-    var war_name = args[3];
-    var date = args[4];
-    var time = args[5];
-    var timezone = args[6];
-
-    var d = date.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-    if(d){
-      date = new Date(d[3], d[1]-1, d[2]);
-
-      var year = date.getFullYear();
-      var month = date.getMonth() + 1;
-      var day = date.getDate();
-      date = month + "/" + day + "/" + year;
-    }else{
-      msg = "Incorrect date format.  Date must be in the format mm/dd/yyyy.";
-      return msg;
-    }
-
-    var warHash = {
-      war_id: war_id,
-      host_clan: host_clan,
-      war_name: war_name,
-      date: date,
-      time: time
-    }
-
-    //saveWar(warHash, callback);
-    msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
-    callback(msg);
-
     });
 
   } else {
     callback("Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n");
   }
-
-
-
 }
 
 function cmdGetWar(request, callback) {
