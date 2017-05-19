@@ -98,9 +98,6 @@ function cmdSaveWar(args) {
       return msg;
     }
 
-    if(date_regex.test(date) == false){
-    }
-
     var warHash = {
       war_id: war_id,
       host_clan: host_clan,
