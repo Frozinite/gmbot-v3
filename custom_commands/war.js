@@ -82,23 +82,11 @@ function cmdSaveWar(args) {
   var callback;
   var msg = "";
 
-  if (args.length == 3) {
-    var user_id = request.attachments[0].user_ids[0];
-
-    var start = request.attachments[0].loci[0][0];
-    var end = start + request.attachments[0].loci[0][1];
-    var user_name = request.text.substring(start, end);
-
-    var quote = request.text.substring(end, request.text.length);
-    quote = quote.trim();
-
-
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    var time = date.getTime();
-    date = year + "-" + month + "-" + day;
+  if (args.length == 5) {
+    var war_id = 1;
+    var war_name = args[2];
+    var date = args[3];
+    var time = args[4];
 
     var warHash = {
       war_id: war_id,
