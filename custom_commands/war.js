@@ -47,7 +47,7 @@ function getHelp(callback){
   msg += "**Available war commands\n";
   msg += "  help\n";
   msg += "  schedule\n";
-  msg += "  new\n”;
+  msg += "  new\n";
   msg += " **";
 
   callback(msg);
