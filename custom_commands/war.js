@@ -84,6 +84,10 @@ function cmdSaveWar(args) {
 
   if (args.length == 7) {
     var war_id = countWars();
+
+    msg = "There have been " + war_id + " wars";
+    return msg;
+
     var host_clan = args[2]
     var war_name = args[3];
     var date = args[4];
