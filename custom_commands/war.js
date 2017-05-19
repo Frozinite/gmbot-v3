@@ -99,7 +99,7 @@ function cmdSaveWar(args) {
     msg = "War saved!";
     return msg;
   } else {
-    return "Failed to save war.  You probably gave the wrong inputs, idiot\n";
+    return "Failed to save war.  The proper command is \“!war save <host clan> <opponent> <date> <time>\”.  Date must be in the format dd/mm/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war save mutiny EE 3/14/2017 5pm_EST\”\n”;
   }
 }
 
