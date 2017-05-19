@@ -64,7 +64,7 @@ function getSchedule(callback){
     // Query the database for all the wars
     msg += "**Upcoming Arranged Wars:**\n";
 
-    for(var count = 1; count <= docs.length; count++){
+    for(var count = 0; count <= docs.length-1; count++){
       console.log("Got a war \n");
       //console.log(docs[count]);
       console.log(docs[count].host_clan);
