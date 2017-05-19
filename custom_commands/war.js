@@ -67,11 +67,12 @@ function getSchedule(callback){
     for(var count = 0; count <= docs.length-1; count++){
       console.log("Got a war \n");
       //console.log(docs[count]);
-      console.log(docs[count].host_clan);
-      console.log(docs[count].war_name);
-      console.log(docs[count].date);
-      console.log(docs[count].time);
-      msg += "  Got a war \n";
+      //console.log(docs[count].host_clan);
+      //console.log(docs[count].war_name);
+      //console.log(docs[count].date);
+      //console.log(docs[count].time);
+      //msg += "  Got a war \n";
+      msg += "- " + war_name " war, hosted at " + host_clan + " on " + date + " at " + time + "\n";
     }
 
     if (docs.length == 0){
