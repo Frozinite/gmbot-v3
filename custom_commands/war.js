@@ -54,18 +54,17 @@ function getHelp(callback){
 }
 
 function getSchedule(callback){
-  var msg = "";
-
-  msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
-  msg += "**Unless otherwise specified, all war searches occur between 3pm PST (6pm EST; 10pm UTC) to 6pm PST (9pm EST; 4am UTC).**\n\n";
-
-  // Query the database for all the wars
-  msg += "**Upcoming Arranged Wars:**\n";
-
   findAllWars(function(docs){
-    var num_wars = docs.length;
+    var msg = "";
 
-    for(var count = 1; count <= num_wars; count++){
+    msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
+    msg += "**Unless otherwise specified, all war searches occur between 3pm PST (6pm EST; 10pm UTC) to 6pm PST (9pm EST; 4am UTC).**\n\n";
+
+    // Query the database for all the wars
+    msg += "**Upcoming Arranged Wars:**\n";
+
+
+    for(var count = 1; count <= docs.length; count++){
       console.log("Got a war \n");
       msg += "  Got a war \n";
     }
@@ -73,10 +72,9 @@ function getSchedule(callback){
     if (num_wars == 0){
       msg += "  none\n";
     }
-  });
 
-  callback(msg);
-  return msg;
+    callback(msg);
+  });
 }
 
 function saveWar(warHash, callback){
