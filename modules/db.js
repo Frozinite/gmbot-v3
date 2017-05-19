@@ -81,7 +81,8 @@ exports.countDocs = function (collection, callback) {
       db.close();
       return result;
     });
-    //console.log(ret);
+    console.log(ret);
+    return ret;
   });
 }
 
