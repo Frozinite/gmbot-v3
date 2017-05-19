@@ -66,7 +66,11 @@ function getSchedule(callback){
 
     for(var count = 1; count <= docs.length; count++){
       console.log("Got a war \n");
-      console.log(docs[count]);
+      //console.log(docs[count]);
+      console.log(docs[count].host_clan);
+      console.log(docs[count].war_name);
+      console.log(docs[count].date);
+      console.log(docs[count].time);
       msg += "  Got a war \n";
     }
 
