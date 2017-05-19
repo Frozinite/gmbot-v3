@@ -44,10 +44,10 @@ exports.warParser = function(command, callback) {
 function getHelp(callback){
   var msg = "";
 
-  msg += "**Available war commands**\n”;
-  msg += "  **help** – Prints this message\n”;
-  msg += "  **schedule** – Lists all upcoming wars\n”;
-  msg += "  **new** – Create a new war entry\n”;
+  msg += "**Available war commands**\n";
+  msg += "  **help** – Prints this message\n";
+  msg += "  **schedule** – Lists all upcoming wars\n";
+  msg += "  **new** – Create a new war entry\n";
 //  msg += " **";
 
   callback(msg);
