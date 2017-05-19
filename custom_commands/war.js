@@ -56,7 +56,7 @@ function getSchedule(){
   var msg = "";
 
   msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
-  msg += "**Unless otherwise specified, all war searches occur between 4pm PST (7pm EST; 11pm UTC) to 7pm PST (10pm EST; 5am UTC).**\n\n";
+  msg += "**Unless otherwise specified, all war searches occur between 3pm PST (6pm EST; 10pm UTC) to 6pm PST (9pm EST; 4am UTC).**\n\n";
 
   msg += "**Upcoming Arranged Wars:**\n";
   msg += "  none\n";

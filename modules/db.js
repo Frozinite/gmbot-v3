@@ -73,8 +73,8 @@ exports.removeOneDoc = function(collection, findJson, callback) {
 exports.countDocs = function (collection, callback) {
   connect(function(db){
     var ret = db.collection(collection).count(function(err, result){
-      if (callback)
-        callback(result);
+      //if (callback)
+      //  callback(result);
       if (err)
         console.log(err);
       db.close();
