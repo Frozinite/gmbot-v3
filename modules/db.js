@@ -75,10 +75,11 @@ exports.countDocs = function (collection, callback) {
     var ret = db.collection(collection).count(function(err, result){
       //if (callback)
       //  callback(result);
-      if (err)
-        console.log(err);
-        console.log(result);
+      //if (err)
+        //console.log(err);
+        //console.log(result);
       db.close();
+      return result;
     });
     //console.log(ret);
   });
