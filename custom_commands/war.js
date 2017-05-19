@@ -70,7 +70,7 @@ function getSchedule(callback){
       msg += "  Got a war \n";
     }
 
-    if (num_wars == 0){
+    if (docs.length == 0){
       msg += "  none\n";
     }
 
