@@ -92,7 +92,7 @@ function cmdSaveWar(args) {
 
     var d = date.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
     if(d){
-      date = new Date(d[3], d[2]-1, d[1]);
+      date = new Date(d[2]-1, d[3], d[1]);
     }else{
       msg = "Incorrect date format.  Date must be in the format mm/dd/yyyy.";
       return msg;
