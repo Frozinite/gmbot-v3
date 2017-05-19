@@ -59,8 +59,20 @@ function getSchedule(callback){
   msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
   msg += "**Unless otherwise specified, all war searches occur between 3pm PST (6pm EST; 10pm UTC) to 6pm PST (9pm EST; 4am UTC).**\n\n";
 
+  // Query the database for all the wars
   msg += "**Upcoming Arranged Wars:**\n";
-  msg += "  none\n";
+
+  findAllWars(function(docs){
+    var num_wars = docs.length;
+
+    for(var count = 1; count <= num_wars; count++){
+      msg += "Got a war \n";
+    }
+
+    if (num_wars == 0){
+      msg += "  none\n";
+    }
+  });
 
   callback(msg);
   return msg;
@@ -72,6 +84,10 @@ function saveWar(warHash, callback){
 
 function findWar(id, callback){
   db.findDocs(db_table, {war_id: id}, callback);
+}
+
+function findAllWars(id, callback){
+  db.findAllDocuments(db_table, callback);
 }
 
 function countWars(callback){
