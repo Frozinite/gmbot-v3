@@ -143,7 +143,7 @@ function cmdSaveWar(args, callback) {
     });
 
   } else {
-    msg = "Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n");
+    msg = "Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n";
 
     callback(msg);
   }
