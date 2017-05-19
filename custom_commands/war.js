@@ -82,15 +82,23 @@ function cmdSaveWar(args) {
   var callback;
   var msg = "";
 
-  if (args.length == 6) {
+  if (args.length == 7) {
     var war_id = 1;
     var host_clan = args[2]
     var war_name = args[3];
     var date = args[4];
     var time = args[5];
+    var timezone = args[6];
+
+    var date_regex = /(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}/;
+    if(date_regex.test(date) == false){
+      msg = "Incorrect date format.  Date must be in the format dd/mm/yyyy.";
+      return msg;
+    )
 
     var warHash = {
       war_id: war_id,
+      host_clan: host_clan,
       war_name: war_name,
       date: date,
       time: time
@@ -100,7 +108,7 @@ function cmdSaveWar(args) {
     msg = "War saved!";
     return msg;
   } else {
-    return "Failed to save war.  The proper command is \“!war save <host_clan> <opponent> <date> <time>\”.  Date must be in the format dd/mm/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war save mutiny EE 3/14/2017 5pm_EST\” or \“!war save RT potluck 6/23/2017 5pm_EST\”\n";
+    return "Failed to save war.  The proper command is \“!war save <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format dd/mm/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war save mutiny EE 3/14/2017 5pm EST\” or \“!war save RT potluck 6/23/2017 5pm EST\”\n";
   }
 }
 
