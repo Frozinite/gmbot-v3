@@ -136,7 +136,7 @@ function cmdSaveWar(args, callback) {
         time: time
       }
 
-      //saveWar(warHash, callback);
+      saveWar(warHash, callback);
       msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
       callback(msg);
     });
