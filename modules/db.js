@@ -70,25 +70,27 @@ exports.removeOneDoc = function(collection, findJson, callback) {
   });
 }
 
-//exports.countDocs = function (collection, callback) {
-//  connect(function(db){
-//    var ret = db.collection(collection).count(function(err, result){
-//      if (callback)
-//        callback(result);
-//      db.close();
-//    });
-//    console.log(ret);
-//  });
-//}
-
 exports.countDocs = function (collection, callback) {
   connect(function(db){
-    var coll = db.collection(collection);
-    console.log(collection);
-    console.log(coll.count());
-    return coll.count();
+    var ret = db.collection(collection).count(function(err, result){
+      if (callback)
+        callback(result);
+      if (err)
+        console.log(err);
+      db.close();
+    });
+    console.log(ret);
   });
 }
+
+//exports.countDocs = function (collection, callback) {
+//  connect(function(db){
+//    var coll = db.collection(collection);
+//    console.log(collection);
+//    console.log(coll.count());
+//    return coll.count();
+//  });
+//}
     
 
 exports.randomDoc = function(collection, callback) {
