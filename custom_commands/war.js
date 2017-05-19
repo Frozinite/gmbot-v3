@@ -66,6 +66,7 @@ function getSchedule(callback){
     var num_wars = docs.length;
 
     for(var count = 1; count <= num_wars; count++){
+      console.log("Got a war \n");
       msg += "  Got a war \n";
     }
 
