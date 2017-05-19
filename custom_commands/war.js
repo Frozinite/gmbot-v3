@@ -82,7 +82,7 @@ function cmdSaveWar(args) {
   var msg = "";
 
   if (args.length == 7) {
-    var war_id = 1;
+    var war_id = countWars();
     var host_clan = args[2]
     var war_name = args[3];
     var date = args[4];
