@@ -72,7 +72,7 @@ function getSchedule(callback){
       //console.log(docs[count].date);
       //console.log(docs[count].time);
       //msg += "  Got a war \n";
-      msg += "- " + war_name + " war hosted at " + host_clan + " on " + date + " at " + time + "\n";
+      msg += "- " + docs[count].war_name + " war hosted at " + docs[count].host_clan + " on " + docs[count].date + " at " + docs[count].time + "\n";
     }
 
     if (docs.length == 0){
