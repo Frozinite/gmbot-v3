@@ -76,7 +76,6 @@ function countWars(callback){
   db.countDocs(db_table, callback);
 }
 
-
 function cmdSaveWar(args) {
 //  var val = regex.exec(request.text);
   var callback;
@@ -111,8 +110,8 @@ function cmdSaveWar(args) {
       time: time
     }
 
-    //saveWar(warHash, callback);
-    msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is" + war_id + "\n";
+    saveWar(warHash, callback);
+    msg = "New war entry created!  " + host_clan + " will be hosting the " + war_name + " war on " + date + " at " + time + ".  The war_id is " + war_id + "\n";
     return msg;
   } else {
     return "Failed to create a new war entry.  The proper command is \“!war new <host_clan> <opponent> <date> <time> <timezone>\”.  Date must be in the format mm/dd/yyyy.  All other arguments can be in any format, but must be one word.  For example: \“!war new mutiny EE 3/14/2017 5pm EST\” or \“!war new RT potluck 6/23/2017 5pm EST\”\n";
