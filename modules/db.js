@@ -70,16 +70,24 @@ exports.removeOneDoc = function(collection, findJson, callback) {
   });
 }
 
+//exports.countDocs = function (collection, callback) {
+//  connect(function(db){
+//    var ret = db.collection(collection).count(function(err, result){
+//      if (callback)
+//        callback(result);
+//      db.close();
+//    });
+//    console.log(ret);
+//  });
+//}
+
 exports.countDocs = function (collection, callback) {
   connect(function(db){
-    var ret = db.collection(collection).count(function(err, result){
-      if (callback)
-        callback(result);
-      db.close();
-    });
-    console.log(ret);
+    var coll = db.collection(collection);
+    return coll.count();
   });
 }
+    
 
 exports.randomDoc = function(collection, callback) {
   connect(function(db){
