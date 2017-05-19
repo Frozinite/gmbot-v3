@@ -18,30 +18,30 @@ exports.warParser = function(command, callback) {
 
   // No command or arguments, give list of commands
   if (argsArray.length == 1){
-    warMessage = getHelp();
+    warMessage = getHelp(callback);
     return warMessage;
   }
 
   switch(argsArray[1]){
     case "help":
-      warMessage = getHelp();
+      warMessage = getHelp(callback);
       break;
     case "schedule":
-      warMessage = getSchedule();
+      warMessage = getSchedule(callback);
       break;
     case "new":
       warMessage = cmdSaveWar(argsArray, callback);
       break;
     default:
       warMessage = "Invalid command\n\n";
-      warMessage += getHelp();
+      warMessage += getHelp(callback);
       break;
   }
 
   return warMessage;
 }
 
-function getHelp(){
+function getHelp(callback){
   var msg = "";
 
   msg += "**Available war commands\n";
@@ -49,10 +49,11 @@ function getHelp(){
   msg += "  schedule\n";
   msg += " **";
 
+  callback(msg);
   return msg;
 }
 
-function getSchedule(){
+function getSchedule(callback){
   var msg = "";
 
   msg += "**All clans in DTF search for wars on Mondays, Thursdays, and Saturdays.**\n";
@@ -61,6 +62,7 @@ function getSchedule(){
   msg += "**Upcoming Arranged Wars:**\n";
   msg += "  none\n";
 
+  callback(msg);
   return msg;
 }
 
