@@ -97,7 +97,7 @@ function cmdSaveWar(args) {
       var year = date.getFullYear();
       var month = date.getMonth() + 1;
       var day = date.getDate();
-      date = month + "-" + day + "-" + year;
+      date = month + "/" + day + "/" + year;
     }else{
       msg = "Incorrect date format.  Date must be in the format mm/dd/yyyy.";
       return msg;
