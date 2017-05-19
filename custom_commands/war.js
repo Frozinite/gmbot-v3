@@ -103,7 +103,7 @@ function cmdSaveWar(args) {
     var warHash = {
       war_id: war_id,
       war_name: war_name,
-      date: date
+      date: date,
       time: time
     }
 
@@ -111,7 +111,7 @@ function cmdSaveWar(args) {
     msg = "War saved!";
     return msg;
   } else {
-    return "Failed to save war.  You probably gave the wrong arguments, idiot\n";
+    return "Failed to save war.  You probably gave the wrong inputs, idiot\n";
   }
 }
 
