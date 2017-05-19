@@ -86,7 +86,7 @@ function findWar(id, callback){
   db.findDocs(db_table, {war_id: id}, callback);
 }
 
-function findAllWars(id, callback){
+function findAllWars(callback){
   db.getAllDocuments(db_table, callback);
 }
 
