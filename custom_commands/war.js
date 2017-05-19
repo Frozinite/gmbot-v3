@@ -30,7 +30,7 @@ exports.warParser = function(command) {
       warMessage = getSchedule();
       break;
     case "new":
-      cmdSaveWar(argsArray);
+      warMessage = cmdSaveWar(argsArray);
       break;
     default:
       warMessage = "Invalid command\n\n";
