@@ -47,6 +47,7 @@ function getHelp(callback){
   msg += "**Available war commands\n";
   msg += "  help\n";
   msg += "  schedule\n";
+  msg += "  new\n”;
   msg += " **";
 
   callback(msg);
@@ -101,7 +102,6 @@ function countWars(callback){
 }
 
 function cmdSaveWar(args, callback) {
-//  var val = regex.exec(request.text);
   var msg = "";
 
   if (args.length == 7) {
@@ -125,7 +125,7 @@ function cmdSaveWar(args, callback) {
         date = month + "/" + day + "/" + year;
       }else{
         msg = "Incorrect date format.  Date must be in the format mm/dd/yyyy.";
-        return msg;
+        callback(msg);
       }
 
       var warHash = {
