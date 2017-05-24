@@ -239,7 +239,7 @@ var temp_message5 = message;
   var regex5 = /^!YouTube (.+)/;
 
   if (regex5.test(temp_message5)){
-    var val = regex.exec(temp_message5);
+    var val = regex5.exec(temp_message5);
 
     val[1] = "!youtube " + val[1];
 
