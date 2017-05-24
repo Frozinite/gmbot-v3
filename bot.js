@@ -236,14 +236,14 @@ var temp_message5 = message;
 
 
 // Function for autocorrecting YouTube to youtube for mee6 bot
-  var regex5 = /^!YouTube|Youtube (.+)/;
+  var regex5 = /^!(YouTube|Youtube) (.+)/;
 
   if (regex5.test(temp_message5)){
     var val = regex5.exec(temp_message5);
 
-    val[1] = "!youtube " + val[1];
+    val[2] = "!youtube " + val[2];
 
-    bot.sendMessage({ to: channelID, message: val[1] });
+    bot.sendMessage({ to: channelID, message: val[2] });
     return true;
   }
 
