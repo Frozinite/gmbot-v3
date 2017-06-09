@@ -219,7 +219,7 @@ var temp_message5 = message;
 
 
 // Parent function for !war command, sends it over to the war module to parse
-  var regex4 = /^!war/i;
+  var regex4 = /^!war\b/i;
   var warMessage;
 
   if (regex4.test(temp_message4)){
